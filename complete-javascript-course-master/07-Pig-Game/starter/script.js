@@ -49,16 +49,22 @@ btnHold.addEventListener('click', function () {
   //1.add current score to the active players score
   // console.log('clicked hold button')
   scores[activePlayer] += currentScore;
-  console.log(scores[activePlayer])
+  console.log(scores[activePlayer]);
   document.getElementById(`score--${activePlayer}`).textContent =
     scores[activePlayer];
 
   //2.  100 > ?
 
-  if (scores[activePlayer]>=100){
-      //finish the game
-      
+  if (scores[activePlayer] == 20) {
+    //finish the game
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.add('player--winner');
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.remove('player--winner');
+  } else {
+    // if no switch the player
+    switchPlayer();
   }
-  // if no switch the player
-  switchPlayer();
 });
